@@ -1,0 +1,68 @@
+
+
+div {
+    outline: 1px solid black;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+
+  
+    height:50vh;
+    width:40vh;
+}
+
+.calculator-body{
+    display:flex;
+    flex-direction: column;
+ 
+}
+
+
+.top-calculator{
+
+    display:flex;
+    flex-flow:row;
+    height:25vh;
+    width:40vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.display{
+    display:flex;
+    justify-content: flex-end;
+    padding-right:30px;
+    padding-top:30px;
+    width:35vh;
+    height:10vh;
+}
+
+
+
+.calculator-buttons{
+    display:flex;
+    flex-flow:column;
+}
+
+
+.num-pad{
+    display:grid;
+    grid-template-columns: repeat(4,25%);
+    grid-template-rows: repeat(4,25%);
+    width:40vh;
+    height:25vh;
+}
+
+.num{
+    
+}
+
