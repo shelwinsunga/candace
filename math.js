@@ -31,27 +31,86 @@ function calculate(a, operator, b) {
   }
 }
 
-function displayCalc() {
-  let prevNum = "";
+function parse(s) {
+  let num = "";
+  let arr = [];
+  let operand = "";
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] == "+") {
+      arr.push(num);
+      num = "";
+    } else if (s[i] != "+") {
+      num += s[i];
+    }
+  }
+  arr.push(num);
+  let firstNum = parseInt(arr[0]);
+  let secondNum = parseInt(arr[1]);
+  return firstNum + secondNum;
+}
+
+function updateDisplay(input, output) {
+  inputDisplay.innerHTML = input;
+  outputDisplay.innerHTML = output;
+}
+
+function main() {
+  let input = "";
   let numberSequence = "";
+  let secondNumSequence = "";
+
   numberPad.forEach((number) => {
     number.addEventListener("click", () => {
-      prevNum = number.innerHTML;
-      numberSequence = numberSequence + `${prevNum}`;
-      inputDisplay.innerHTML = numberSequence;
-      console.log(numberSequence);
+      input = number.innerHTML;
+      numberSequence = numberSequence + `${input}`;
+
+      // inputDisplay.innerHTML = numberSequence;
+      updateDisplay(numberSequence);
     });
 
     clearBtn.addEventListener("click", () => {
-      prevNum = "";
+      input = "";
       numberSequence = "";
-      inputDisplay.innerHTML = numberSequence;
+      updateDisplay("", "");
     });
   });
 }
 
-displayCalc();
+main();
 
-let a = "5";
-let b = "10";
-console.log(a + b);
+// function displayCalc() {
+//   let input = "";
+//   let numberSequence = "";
+//   let secondSequence = "";
+
+//   numberPad.forEach((number) => {
+//     number.addEventListener("click", () => {
+//       input = number.innerHTML;
+//       numberSequence = numberSequence + `${input}`;
+
+//       if(number.id == "add" ||
+//       number.id == "subtract" ||
+//       number.id == "multiply" ||
+//       number.id == "divide" ){
+//         //TODO: Keep track of second numbers
+//         //Stop taking input from other operations
+
+//       }
+//       if(number.id == "equals"){
+
+//       }
+
+//         inputDisplay.innerHTML = numberSequence;
+
+//     });
+
+//     clearBtn.addEventListener("click", () => {
+//       input = "";
+//       numberSequence = "";
+//       inputDisplay.innerHTML = numberSequence;
+//     });
+//   });
+// }
+
+// displayCalc();
