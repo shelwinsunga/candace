@@ -39,9 +39,8 @@ body{
 
 .display{
     display:flex;
-    justify-content: flex-end;
-    padding-right:30px;
-    padding-top:30px;
+    flex-flow:column;
+    align-items: flex-end;
     width:35vh;
     height:10vh;
 }
