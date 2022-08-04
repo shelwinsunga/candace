@@ -45,9 +45,12 @@ function parse(s) {
     }
   }
   arr.push(num);
-  let firstNum = parseInt(arr[0]);
-  let secondNum = parseInt(arr[1]);
-  return firstNum + secondNum;
+
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += parseInt(arr[i]);
+  }
+  return sum;
 }
 
 function updateDisplay(input, output) {
@@ -57,21 +60,27 @@ function updateDisplay(input, output) {
 
 function main() {
   let input = "";
+  let output = "";
   let numberSequence = "";
   let secondNumSequence = "";
 
   numberPad.forEach((number) => {
     number.addEventListener("click", () => {
       input = number.innerHTML;
+      if (number.id == "equals") {
+        output += parse(numberSequence);
+      }
+
       numberSequence = numberSequence + `${input}`;
 
       // inputDisplay.innerHTML = numberSequence;
-      updateDisplay(numberSequence);
+      updateDisplay(numberSequence, output);
     });
 
     clearBtn.addEventListener("click", () => {
       input = "";
       numberSequence = "";
+
       updateDisplay("", "");
     });
   });
