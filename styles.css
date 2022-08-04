@@ -1,7 +1,9 @@
-
+html{
+    background-color: #D9D9D9;
+}
 
 div {
-    outline: 1px solid black;
+    outline:1px dotted black;
 }
 
 body{
@@ -15,15 +17,24 @@ body{
     display:flex;
     justify-content:center;
 
-  
+    
     height:50vh;
     width:40vh;
 }
-
+.sheet{
+    outline: 0px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D9D9D9;
+    color:grey;
+    width:70vh;
+    height:70vh;
+    box-shadow:1px 1px 1px 1px;
+}
 .calculator-body{
     display:flex;
     flex-direction: column;
- 
 }
 
 
